@@ -3,6 +3,10 @@ var router = express.Router();          // Router object for routes
 
 var friendModel = require('./models/friends-01');
 
+router.get('/api', function handleHomePage(request, response) {
+	response.sendFile("/" + "index.html");
+	//response.sendFile(__dirname + "/" + "index.html");
+});
 
 
 router.post('/friends', 
@@ -48,4 +52,18 @@ router.get('/:id', function FriendsGetByIdHandler(request, response){
         }
     });
 });
+
+router.get('/friends/:name', function FriendsGetByNameHandler(request, response){
+    friendModel.findByName(request.params.name, function DoneGettingByName(err, result, fields){
+        if (err){
+            console.log("Some error finding by name");
+            console.log(err);
+            response.write("Error finding by name");
+		} else {
+			response.json(result);
+		}
+    });
+});
+
+
 module.exports = router;

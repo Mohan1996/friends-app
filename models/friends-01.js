@@ -32,7 +32,7 @@ exports.findById = function FindByIdHandler(id, done){
 
 exports.findByName = function FindByNameHandler(name, done){
     db.get().query(
-        'SELECT * FROM friends WHERE first_name = ?', id, 
+        'SELECT * FROM friends WHERE first_name = ?', name, 
         function SelectQueryHandler(err, result, fields){
             if (err)
                 return done(err);

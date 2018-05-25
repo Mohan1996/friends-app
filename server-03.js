@@ -12,6 +12,7 @@ var db         = require('./db');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+
 var port = 3000;        // set our port
 
 db.connect(function ConnectionHandler(err){
@@ -33,6 +34,7 @@ app.all('/api', function HandleAll(request, response, next){
 
 var router = require('./friends-router-02.js');         // get an instance of the express Router
 
+app.use(express.static('public'));
 
 
 
@@ -46,4 +48,4 @@ app.use('/api', router);
 // START THE SERVER
 // =============================================================================
 app.listen(port);
-console.log('Version 2: Magic happens on port ' + port);
+console.log('Version 3: Magic happens on port ' + port);
