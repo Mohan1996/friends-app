@@ -3,7 +3,8 @@ var router = express.Router();          // Router object for routes
 
 var friendModel = require('./models/friends-01');
 
-router.get('/api', function handleHomePage(request, response) {
+// Need to figure out why is loading when site home page is requested
+router.get('/api', function HomePageHandler(request, response) {
 	response.sendFile("/" + "index.html");
 	//response.sendFile(__dirname + "/" + "index.html");
 });
