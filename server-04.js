@@ -34,7 +34,7 @@ app.all('/api', function HandleAll(request, response, next){
 
 var router = require('./friends-router-03.js');         // get an instance of the express Router
 
-app.use(express.static('public'));
+app.use('/api', express.static('public'));
 
 
 
@@ -48,4 +48,4 @@ app.use('/api', router);
 // START THE SERVER
 // =============================================================================
 app.listen(port);
-console.log('Version 3: Magic happens on port ' + port);
+console.log('Version 4: Magic happens on port ' + port);

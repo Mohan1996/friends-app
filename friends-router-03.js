@@ -114,7 +114,7 @@ router.put('/:id', function FriendsPutHandler(request, response){
 });
 
 router.delete('/:id', function FriendsDeleteHandler(request, response){
-        friendModel.findById(request.params.id, function HandleFind(err){
+        friendModel.findById(request.params.id, function HandleFind(err, result){
                 if (err){
                     console.log("Some error finding the Id: " + request.params.id);
                     console.log(err);
